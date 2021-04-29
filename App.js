@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import UsersList from './containers/UsersList/UsersList';
+import UserList from './containers/UserList/UserList';
 const App = () => {
   return (
     <View>
       <Text>Hola soy App</Text>
-      <UsersList />
+      <UserList />
     </View>
   );
 };

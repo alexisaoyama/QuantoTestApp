@@ -1,7 +1,7 @@
-//users list constants
-export const GET_USERS_LIST = 'GET USERS_LIST';
-export const GET_USERS_LIST_FULFILLED = 'GET_USERS_LIST_FULFILLED';
-export const GET_USERS_LIST_ERROR = 'GET_USER_LIST_ERROR';
+//user list constants
+export const GET_USER_LIST = 'GET USER_LIST';
+export const GET_USER_LIST_FULFILLED = 'GET_USER_LIST_FULFILLED';
+export const GET_USER_LIST_ERROR = 'GET_USER_LIST_ERROR';
 
 //user details constans
 export const GET_USER_DETAILS = 'GET_USER_DETAILS';

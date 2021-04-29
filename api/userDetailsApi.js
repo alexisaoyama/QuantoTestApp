@@ -5,11 +5,11 @@ import {
 } from '../redux/actions/userDetailsAction';
 import axios from 'axios';
 
-export const getUserDetails = () => {
+export const getUserDetails = id => {
   return dispatch => {
     dispatch(fetchUserDetails(true));
     axios
-      .get('https://reqres.in/api/users')
+      .get(`https://reqres.in/api/users/${id}`)
       .then(res => {
         dispatch(fetchUserDetailsFulfilled(res.data));
       })

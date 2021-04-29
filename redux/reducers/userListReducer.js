@@ -1,7 +1,7 @@
 import {
-  GET_USERS_LIST,
-  GET_USERS_LIST_FULFILLED,
-  GET_USERS_LIST_ERROR,
+  GET_USER_LIST,
+  GET_USER_LIST_FULFILLED,
+  GET_USER_LIST_ERROR,
 } from '../constants';
 
 const initialState = {
@@ -18,11 +18,11 @@ const initialState = {
 
 const userListReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_USERS_LIST:
+    case GET_USER_LIST:
       return { ...state, loading: action.payload };
-    case GET_USERS_LIST_FULFILLED:
+    case GET_USER_LIST_FULFILLED:
       return { ...state, userList: action.payload, loading: action.loading };
-    case GET_USERS_LIST_ERROR:
+    case GET_USER_LIST_ERROR:
       return {
         ...state,
         errorMessage: action.payload,
