@@ -9,7 +9,6 @@ const rootReducer = combineReducers({
   userDetails: userDetailsReducer,
 });
 
-const store = () => {
-  return createStore(rootReducer, applyMiddleware(thunk));
-};
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
 export default store;

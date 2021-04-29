@@ -1,19 +1,28 @@
-import { GET_USERS_LIST, USERS_LIST_ERROR } from '../constants';
-import axios from 'axios';
+import {
+  GET_USERS_LIST,
+  GET_USERS_LIST_FULFILLED,
+  GET_USERS_LIST_ERROR,
+} from '../constants';
 
-const API_URL = 'https://reqres.in/api/users';
+export const fetchUsersList = bool => {
+  return {
+    type: GET_USERS_LIST,
+    payload: bool,
+  };
+};
 
-export const getUsersList = () => async dispatch => {
-  try {
-    const res = await axios.get(API_URL);
-    dispatch({
-      type: GET_USERS_LIST,
-      payload: res.data,
-    });
-  } catch (e) {
-    dispatch({
-      type: USERS_LIST_ERROR,
-      payload: console.log(e),
-    });
-  }
+export const fetchUsersListFulfilled = data => {
+  return {
+    type: GET_USERS_LIST_FULFILLED,
+    payload: data,
+    loading: false,
+  };
+};
+
+export const fetchUsersListError = error => {
+  return {
+    type: GET_USERS_LIST_ERROR,
+    payload: error,
+    loading: false,
+  };
 };
