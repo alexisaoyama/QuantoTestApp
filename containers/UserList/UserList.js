@@ -4,6 +4,7 @@ import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserList } from '../../api/userListApi';
 import UserItem from './UserItem';
+import LoadingIndicator from '../../components/LoadingIndicator';
 
 const UserList = ({ navigation }) => {
   const userList = useSelector(state => state.userList.userList.data);
@@ -17,12 +18,18 @@ const UserList = ({ navigation }) => {
   }, []);
 
   return (
-    <FlatList
-      data={userList}
-      renderItem={({ item }) => (
-        <UserItem props={item} navigation={navigation} />
+    <>
+      {loading ? (
+        <LoadingIndicator />
+      ) : (
+        <FlatList
+          data={userList}
+          renderItem={({ item }) => (
+            <UserItem props={item} navigation={navigation} />
+          )}
+        />
       )}
-    />
+    </>
   );
 };
 

@@ -1,12 +1,8 @@
 import React from 'react';
+import { StyleSheet, Text } from 'react-native';
 import { ListItem, Avatar } from 'react-native-elements';
 
 const UserItem = ({ props, navigation }) => {
-  const avatarStyle = {
-    borderWidth: 1,
-    borderColor: 'red',
-  };
-
   const onPressHandler = () => {
     navigation.navigate('Detalle de usuario', {
       id: props.id,
@@ -18,18 +14,29 @@ const UserItem = ({ props, navigation }) => {
       <Avatar
         size="medium"
         rounded
-        source={{ uri: props.avatar }}
-        avatarStyle={avatarStyle}
+        source={props.avatar ? { uri: props.avatar } : null}
+        avatarStyle={styles.avatar}
       />
       <ListItem.Content>
         <ListItem.Title>
           {props.first_name} {props.last_name}
         </ListItem.Title>
-        <ListItem.Subtitle>{props.email}</ListItem.Subtitle>
+        <ListItem.Subtitle>
+          <Text style={styles.email}>{props.email}</Text>
+        </ListItem.Subtitle>
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem>
   );
 };
 
+const styles = StyleSheet.create({
+  avatar: {
+    borderWidth: 1,
+    borderColor: 'red',
+  },
+  email: {
+    color: '#29b6f6',
+  },
+});
 export default UserItem;
