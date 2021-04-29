@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const UserDetails = () => {
+const UserDetails = ({ route }) => {
+  const { id } = route.params;
   return (
     <View>
-      <Text>Hola soy User Details</Text>
+      <Text>Hola soy User Details {id}</Text>
     </View>
   );
 };
