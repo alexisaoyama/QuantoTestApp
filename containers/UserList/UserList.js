@@ -2,9 +2,10 @@
 import React, { useEffect } from 'react';
 import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import LoadingIndicator from '../../components/LoadingIndicator';
+import { showMessage } from 'react-native-flash-message';
 import { getUserList } from '../../api/userListApi';
 import UserItem from './UserItem';
-import LoadingIndicator from '../../components/LoadingIndicator';
 
 const UserList = ({ navigation }) => {
   const userList = useSelector(state => state.userList.userList.data);
@@ -14,8 +15,17 @@ const UserList = ({ navigation }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    //page, per_page
     dispatch(getUserList(1, 12));
   }, []);
+
+  useEffect(() => {
+    errorMessage &&
+      showMessage({
+        message: errorMessage,
+        type: 'danger',
+      });
+  }, [errorMessage]);
 
   return (
     <>

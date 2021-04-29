@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import FlashMessage from 'react-native-flash-message';
 import UserList from './containers/UserList/UserList';
 import UserDetails from './containers/UserDetails/UserDetails';
 
@@ -21,6 +22,7 @@ const App = () => {
           options={headerOptions}
         />
       </Stack.Navigator>
+      <FlashMessage />
     </NavigationContainer>
   );
 };

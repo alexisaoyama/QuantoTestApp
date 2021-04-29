@@ -5,18 +5,26 @@ import { getUserDetails } from '../../api/userDetailsApi';
 import { View, StyleSheet } from 'react-native';
 import { Avatar, Text } from 'react-native-elements';
 import LoadingIndicator from '../../components/LoadingIndicator';
+import { showMessage } from 'react-native-flash-message';
 
 const UserDetails = ({ route }) => {
   const { id } = route.params;
   const userDetails = useSelector(state => state.userDetails.userDetails.data);
   const loading = useSelector(state => state.userDetails.loading);
   const errorMessage = useSelector(state => state.userDetails.errorMessage);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUserDetails(id));
   }, []);
+
+  useEffect(() => {
+    errorMessage &&
+      showMessage({
+        message: errorMessage,
+        type: 'danger',
+      });
+  }, [errorMessage]);
 
   return (
     <>
