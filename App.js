@@ -7,12 +7,6 @@ import UserDetails from './containers/UserDetails/UserDetails';
 const Stack = createStackNavigator();
 
 const App = () => {
-  const headerOptions = {
-    headerStyle: {
-      backgroundColor: '#2196f3',
-    },
-    headerTintColor: '#fff',
-  };
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Listado de usuarios">
@@ -29,6 +23,13 @@ const App = () => {
       </Stack.Navigator>
     </NavigationContainer>
   );
+};
+
+const headerOptions = {
+  headerStyle: {
+    backgroundColor: '#2196f3',
+  },
+  headerTintColor: '#fff',
 };
 
 export default App;
