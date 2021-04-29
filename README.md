@@ -1,7 +1,9 @@
 # Test de React Native
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+### `yarn install`
 
 ### `npx react-native start`
+
+### `npx react-native run-android`
